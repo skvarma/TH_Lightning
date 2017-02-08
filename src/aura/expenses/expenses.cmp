@@ -1,4 +1,4 @@
-<aura:component >
+<aura:component controller="ExpensesController">
     <aura:attribute name="newExpense" type="Expense__c"
      default="{ 'sobjectType': 'Expense__c',
                     'Name': '',
@@ -8,6 +8,9 @@
                     'Reimbursed__c': false }"/>
     
     <aura:attribute name="expenses" type="Expense__c[]"/>
+
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+
 
 
 
@@ -68,7 +71,7 @@
                       placeholder="ABC Co."/>
               </div>
           </div>
-    
+
           <div class="slds-form-element">
               <div class="slds-form-element__control">
                   <ui:inputDate aura:id="expdate" label="Expense Date"
